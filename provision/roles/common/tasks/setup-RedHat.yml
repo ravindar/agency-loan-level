@@ -1,0 +1,19 @@
+- name: Install standard tools
+  yum: name={{ item }} state=present
+  with_items:
+    - libselinux-python
+    - binutils
+    - bind-utils
+    - nc
+    - ntp
+    - ntpdate
+    - tcpdump
+    - telnet
+    - htop
+    - sysstat
+    - screen
+    - mtr
+    - git
+    - tree
+    - jwhois
+    - lsof

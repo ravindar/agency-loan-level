@@ -100,7 +100,7 @@ CREATE SEQUENCE loans_id_seq
   NO MINVALUE
   NO MAXVALUE
   CACHE 1;
-  
+
 ALTER TABLE ONLY loans ALTER COLUMN id SET DEFAULT nextval('loans_id_seq'::regclass);
 ALTER TABLE ONLY loans ADD CONSTRAINT loans_pkey PRIMARY KEY (id);
 
@@ -119,7 +119,7 @@ CREATE SEQUENCE servicers_id_seq
   NO MINVALUE
   NO MAXVALUE
   CACHE 1;
-  
+
 ALTER TABLE ONLY servicers ALTER COLUMN id SET DEFAULT nextval('servicers_id_seq'::regclass);
 ALTER TABLE ONLY servicers ADD CONSTRAINT servicers_pkey PRIMARY KEY (id);
 
@@ -201,7 +201,7 @@ CREATE TABLE hpi_indexes (
   first_date date
 );
 
-COPY hpi_indexes FROM '/path/to/agency-loan-level/data/hpi_index_codes.txt' DELIMITER '|' NULL '';
+COPY hpi_indexes FROM '/vagrant/data/hpi_index_codes.txt' DELIMITER '|' NULL '';
 
 CREATE TABLE hpi_values (
   hpi_index_id integer,
@@ -210,7 +210,7 @@ CREATE TABLE hpi_values (
   PRIMARY KEY (hpi_index_id, date)
 );
 
-COPY hpi_values FROM '/path/to/agency-loan-level/data/interpolated_hpi_values.txt' DELIMITER '|' NULL '';
+COPY hpi_values FROM '/vagrant/data/interpolated_hpi_values.txt' DELIMITER '|' NULL '';
 
 CREATE TABLE mortgage_rates (
   month date PRIMARY KEY,
@@ -219,7 +219,7 @@ CREATE TABLE mortgage_rates (
   zero_point_rate numeric
 );
 
-COPY mortgage_rates FROM '/path/to/agency-loan-level/data/pmms.csv' DELIMITER ',' NULL '';
+COPY mortgage_rates FROM '/vagrant/data/pmms.csv' DELIMITER ',' NULL '';
 
 CREATE TABLE raw_msa_county_mappings (
   cbsa_code integer,
@@ -237,4 +237,4 @@ CREATE TABLE raw_msa_county_mappings (
   state_abbreviation varchar
 );
 
-COPY raw_msa_county_mappings FROM '/path/to/agency-loan-level/data/msa_county_mapping.csv' NULL '' CSV HEADER;
+COPY raw_msa_county_mappings FROM '/vagrant/data/msa_county_mapping.csv' NULL '' CSV HEADER;

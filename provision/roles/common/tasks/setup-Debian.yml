@@ -1,0 +1,29 @@
+- name: Ensure dns servers are configured in /etc/resolv.conf
+  template: src=resolv.conf.j2 dest=/etc/resolv.conf
+  
+- name: Update the packages list
+  sudo: yes
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: Install standard tools
+  apt: pkg={{ item }} state=present
+  with_items:
+    - binutils
+    - dnsutils
+    - netcat
+    - ntp
+    - ntpdate
+    - tcpdump
+    - telnet
+    - htop
+    - sysstat
+    - screen
+    - mtr
+    - git
+    - tree
+    - jwhois
+    - lsof
+    - unzip
+    - acl

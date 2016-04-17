@@ -1,6 +1,6 @@
 #!/bin/bash
 
-app_dir="/path/to/agency-loan-level/"
+app_dir="/vagrant/"
 base_script="db_scripts/create_loans_and_supporting_tables.sql"
 
 createdb agency-loan-level

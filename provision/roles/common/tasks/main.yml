@@ -1,0 +1,9 @@
+---
+# This role contains common plays that will run on all nodes.
+
+# Setup/install tasks depending on distro.
+- include: setup-RedHat.yml
+  when: ansible_os_family == 'RedHat'
+
+- include: setup-Debian.yml
+  when: ansible_os_family == 'Debian'

@@ -1,0 +1,8 @@
+---
+
+# Set up selected time zone dependant upon distribution
+- include: timezone-RedHat.yml
+  when: ansible_os_family == 'RedHat'
+
+- include: timezone-Debian.yml
+  when: ansible_os_family == 'Debian'

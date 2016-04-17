@@ -1,0 +1,2 @@
+[dev]
+192.168.56.163 ansible_ssh_user=vagrant

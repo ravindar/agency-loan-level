@@ -1,0 +1,35 @@
+---
+# This playbook setups up the vagrant machine
+
+# Apply to all hosts
+- hosts: all
+  sudo: yes
+  roles:
+    - common
+    - timezone
+
+# Install & configure loan system
+- hosts: dev
+  sudo: yes
+  vars:
+    postgresql_databases:
+      - name: agency-loan-level
+    postgresql_users:
+      - name: vagrant
+        pass: vagrant
+    postgresql_user_privileges:
+      - name: vagrant
+        db: agency-loan-level
+        priv: "ALL"
+    postgresql_pg_hba_trust_hosts: ['0.0.0.0/0']
+    postgresql_listen_addresses: ['0.0.0.0']
+    r_install_dev: true
+    # apt packages
+    r_install:
+      - r-recommended
+    # cran-r packages
+    r_packages:
+      - name: dplyr
+  roles:
+    - postgres
+    - r
