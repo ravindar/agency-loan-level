@@ -1,0 +1,2 @@
+- name: run tzdata
+  shell: dpkg-reconfigure --frontend noninteractive tzdata

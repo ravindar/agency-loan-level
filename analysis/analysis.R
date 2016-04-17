@@ -9,7 +9,7 @@ library(gridExtra)
 
 # some of the code in this file depends on executing queries in prepare_analysis.sql first
 
-setwd("/path/to/agency-loan-level/analysis/")
+setwd("/vagrant/analysis/")
 source("helpers.R")
 
 vintages = query("SELECT * FROM default_rates_by_vintage ORDER BY vintage")

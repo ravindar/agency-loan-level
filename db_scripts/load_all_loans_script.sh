@@ -1,6 +1,6 @@
 #!/bin/bash
 
-app_dir="/path/to/agency-loan-level/"
+app_dir="/vagrant/"
 freddie_script="db_scripts/populate_freddie_from_raw.sql"
 fannie_script="db_scripts/populate_fannie_from_raw.sql"
 
@@ -8,7 +8,7 @@ fannie_script="db_scripts/populate_fannie_from_raw.sql"
 # http://www.fanniemae.com/portal/funding-the-market/data/loan-performance-data.html
 # http://www.freddiemac.com/news/finance/sf_loanlevel_dataset.html
 
-base_data_dir="/path/to/raw/data/files/"
+base_data_dir="/vagrant/data/files/"
 
 for y in $(seq 2013 1999)
 do

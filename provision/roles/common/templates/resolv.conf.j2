@@ -1,0 +1,16 @@
+#
+# NOTE:	This file is managed by	Ansible and any changes may be over-written
+#
+
+{% for nameserver in dns_nameservers %}
+nameserver {{nameserver}}
+{% endfor %}
+{% if dns_searchs is defined %}
+search {% for name in dns_searchs %}{{name}} {% endfor %}
+{% endif %}
+
+{% if dns_options is defined %}
+{% for option in dns_options %}
+options {{option}}
+{% endfor %}
+{% endif %}
